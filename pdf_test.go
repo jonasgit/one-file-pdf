@@ -439,7 +439,7 @@ func Test_PDF_Compression_(t *testing.T) {
 		endobj
 		5 0 obj <</Type/Font/Subtype/Type1/Name/FNT1
 		/BaseFont/Helvetica
-		/Encoding/StandardEncoding>>
+		/Encoding/WinAnsiEncoding>>
 		endobj
 		xref
 		0 6
@@ -452,7 +452,7 @@ func Test_PDF_Compression_(t *testing.T) {
 		trailer
 		<</Size 6/Root 1 0 R>>
 		startxref
-		479
+		478
 		%%EOF
 		`
 		doc := NewPDF("A4") // initialized PDF
@@ -481,7 +481,7 @@ func Test_PDF_Compression_(t *testing.T) {
 		endobj
 		5 0 obj <</Type/Font/Subtype/Type1/Name/FNT1
 		/BaseFont/Helvetica
-		/Encoding/StandardEncoding>>
+		/Encoding/WinAnsiEncoding>>
 		endobj
 		xref
 		0 6
@@ -494,7 +494,7 @@ func Test_PDF_Compression_(t *testing.T) {
 		trailer
 		<</Size 6/Root 1 0 R>>
 		startxref
-		488
+		487
 		%%EOF
 		`
 		doc := NewPDF("A4") // initialized PDF
@@ -1430,7 +1430,7 @@ func Test_PDF_DrawText_(t *testing.T) {
 		endobj
 		5 0 obj <</Type/Font/Subtype/Type1/Name/FNT1
 		/BaseFont/Helvetica-Bold
-		/Encoding/StandardEncoding>>
+		/Encoding/WinAnsiEncoding>>
 		endobj
 		xref
 		0 6
@@ -1443,7 +1443,7 @@ func Test_PDF_DrawText_(t *testing.T) {
 		trailer
 		<</Size 6/Root 1 0 R>>
 		startxref
-		528
+		527
 		%%EOF
 		`
 		pdfCompare(t, doc.Bytes(), want)
@@ -1477,7 +1477,7 @@ func Test_PDF_DrawText_(t *testing.T) {
 		endobj
 		5 0 obj <</Type/Font/Subtype/Type1/Name/FNT1
 		/BaseFont/Helvetica
-		/Encoding/StandardEncoding>>
+		/Encoding/WinAnsiEncoding>>
 		endobj
 		xref
 		0 6
@@ -1490,7 +1490,7 @@ func Test_PDF_DrawText_(t *testing.T) {
 		trailer
 		<</Size 6/Root 1 0 R>>
 		startxref
-		493
+		492
 		%%EOF
 		`
 		pdfCompare(t, doc.Bytes(), want)
@@ -1545,7 +1545,7 @@ func Test_PDF_DrawTextAt_(t *testing.T) {
 	endobj
 	5 0 obj <</Type/Font/Subtype/Type1/Name/FNT1
 	/BaseFont/Helvetica-Bold
-	/Encoding/StandardEncoding>>
+	/Encoding/WinAnsiEncoding>>
 	endobj
 	xref
 	0 6
@@ -1558,7 +1558,7 @@ func Test_PDF_DrawTextAt_(t *testing.T) {
 	trailer
 	<</Size 6/Root 1 0 R>>
 	startxref
-	682
+	681
 	%%EOF
 	`
 	pdfCompare(t, doc.Bytes(), want)
@@ -1642,7 +1642,7 @@ func Test_PDF_DrawTextInBox_(t *testing.T) {
 		endobj
 		5 0 obj <</Type/Font/Subtype/Type1/Name/FNT1
 		/BaseFont/Helvetica
-		/Encoding/StandardEncoding>>
+		/Encoding/WinAnsiEncoding>>
 		endobj
 		xref
 		0 6
@@ -1655,7 +1655,7 @@ func Test_PDF_DrawTextInBox_(t *testing.T) {
 		trailer
 		<</Size 6/Root 1 0 R>>
 		startxref
-		1633
+		1632
 		%%EOF
 		`
 		pdfCompare(t, doc.Bytes(), want)
@@ -1730,7 +1730,7 @@ func Test_PDF_DrawTextInBox_(t *testing.T) {
 		endobj
 		5 0 obj <</Type/Font/Subtype/Type1/Name/FNT1
 		/BaseFont/Courier
-		/Encoding/StandardEncoding>>
+		/Encoding/WinAnsiEncoding>>
 		endobj
 		xref
 		0 6
@@ -1743,7 +1743,7 @@ func Test_PDF_DrawTextInBox_(t *testing.T) {
 		trailer
 		<</Size 6/Root 1 0 R>>
 		startxref
-		1884
+		1883
 		%%EOF
 		`
 		pdfCompare(t, doc.Bytes(), want)
@@ -2079,7 +2079,7 @@ func Test_PDF_DrawUnitGrid_(t *testing.T) {
 	endobj
 	5 0 obj <</Type/Font/Subtype/Type1/Name/FNT1
 	/BaseFont/Helvetica
-	/Encoding/StandardEncoding>>
+	/Encoding/WinAnsiEncoding>>
 	endobj
 	xref
 	0 6
@@ -2092,7 +2092,7 @@ func Test_PDF_DrawUnitGrid_(t *testing.T) {
 	trailer
 	<</Size 6/Root 1 0 R>>
 	startxref
-	7798
+	7797
 	%%EOF
 	`
 	pdfCompare(t, got, want)
@@ -2265,7 +2265,7 @@ func Test_PDF_FontName_(t *testing.T) {
 		endobj
 		5 0 obj <</Type/Font/Subtype/Type1/Name/FNT1
 		/BaseFont/Times-Roman
-		/Encoding/StandardEncoding>>
+		/Encoding/WinAnsiEncoding>>
 		endobj
 		xref
 		0 6
@@ -2278,7 +2278,7 @@ func Test_PDF_FontName_(t *testing.T) {
 		trailer
 		<</Size 6/Root 1 0 R>>
 		startxref
-		476
+		475
 		%%EOF
 		`
 		pdfCompare(t, doc.Bytes(), want)
@@ -2431,11 +2431,11 @@ func Test_PDF_FontSize_(t *testing.T) {
 		endobj
 		5 0 obj <</Type/Font/Subtype/Type1/Name/FNT1
 		/BaseFont/Times-Bold
-		/Encoding/StandardEncoding>>
+		/Encoding/WinAnsiEncoding>>
 		endobj
 		6 0 obj <</Type/Font/Subtype/Type1/Name/FNT2
 		/BaseFont/Helvetica
-		/Encoding/StandardEncoding>>
+		/Encoding/WinAnsiEncoding>>
 		endobj
 		xref
 		0 7
@@ -2445,11 +2445,11 @@ func Test_PDF_FontSize_(t *testing.T) {
 		0000000130 00000 n
 		0000000241 00000 n
 		0000002733 00000 n
-		0000002835 00000 n
+		0000002834 00000 n
 		trailer
 		<</Size 7/Root 1 0 R>>
 		startxref
-		2936
+		2934
 		%%EOF
 		`
 		pdfCompare(t, doc.Bytes(), want)
@@ -2551,11 +2551,11 @@ func Test_PDF_HorizontalScaling_(t *testing.T) {
 		endobj
 		5 0 obj <</Type/Font/Subtype/Type1/Name/FNT1
 		/BaseFont/Times-Bold
-		/Encoding/StandardEncoding>>
+		/Encoding/WinAnsiEncoding>>
 		endobj
 		6 0 obj <</Type/Font/Subtype/Type1/Name/FNT2
 		/BaseFont/Helvetica
-		/Encoding/StandardEncoding>>
+		/Encoding/WinAnsiEncoding>>
 		endobj
 		xref
 		0 7
@@ -2565,11 +2565,11 @@ func Test_PDF_HorizontalScaling_(t *testing.T) {
 		0000000130 00000 n
 		0000000241 00000 n
 		0000001191 00000 n
-		0000001293 00000 n
+		0000001292 00000 n
 		trailer
 		<</Size 7/Root 1 0 R>>
 		startxref
-		1394
+		1392
 		%%EOF
 		`
 		pdfCompare(t, doc.Bytes(), want)
@@ -2748,7 +2748,7 @@ func Test_PDF_LineWidth_(t *testing.T) {
 		endobj
 		5 0 obj <</Type/Font/Subtype/Type1/Name/FNT1
 		/BaseFont/Helvetica
-		/Encoding/StandardEncoding>>
+		/Encoding/WinAnsiEncoding>>
 		endobj
 		xref
 		0 6
@@ -2761,7 +2761,7 @@ func Test_PDF_LineWidth_(t *testing.T) {
 		trailer
 		<</Size 6/Root 1 0 R>>
 		startxref
-		2998
+		2997
 		%%EOF
         `
 		pdfCompare(t, doc.Bytes(), want)
@@ -2975,7 +2975,7 @@ func Test_PDF_Reset_(t *testing.T) {
 		endobj
 		5 0 obj <</Type/Font/Subtype/Type1/Name/FNT1
 		/BaseFont/Helvetica-Bold
-		/Encoding/StandardEncoding>>
+		/Encoding/WinAnsiEncoding>>
 		endobj
 		xref
 		0 6
@@ -2988,7 +2988,7 @@ func Test_PDF_Reset_(t *testing.T) {
 		trailer
 		<</Size 6/Root 1 0 R>>
 		startxref
-		528
+		527
 		%%EOF
 		`
 		got := doc.Bytes()
@@ -3170,39 +3170,39 @@ func Test_PDF_SetFont_(t *testing.T) {
 		endobj
 		5 0 obj <</Type/Font/Subtype/Type1/Name/FNT1
 		/BaseFont/Times-Bold
-		/Encoding/StandardEncoding>>
+		/Encoding/WinAnsiEncoding>>
 		endobj
 		6 0 obj <</Type/Font/Subtype/Type1/Name/FNT2
 		/BaseFont/Helvetica
-		/Encoding/StandardEncoding>>
+		/Encoding/WinAnsiEncoding>>
 		endobj
 		7 0 obj <</Type/Font/Subtype/Type1/Name/FNT3
 		/BaseFont/Courier
-		/Encoding/StandardEncoding>>
+		/Encoding/WinAnsiEncoding>>
 		endobj
 		8 0 obj <</Type/Font/Subtype/Type1/Name/FNT4
 		/BaseFont/Courier-Bold
-		/Encoding/StandardEncoding>>
+		/Encoding/WinAnsiEncoding>>
 		endobj
 		9 0 obj <</Type/Font/Subtype/Type1/Name/FNT5
 		/BaseFont/Courier-BoldOblique
-		/Encoding/StandardEncoding>>
+		/Encoding/WinAnsiEncoding>>
 		endobj
 		10 0 obj <</Type/Font/Subtype/Type1/Name/FNT6
 		/BaseFont/Courier-Oblique
-		/Encoding/StandardEncoding>>
+		/Encoding/WinAnsiEncoding>>
 		endobj
 		11 0 obj <</Type/Font/Subtype/Type1/Name/FNT7
 		/BaseFont/Helvetica-Bold
-		/Encoding/StandardEncoding>>
+		/Encoding/WinAnsiEncoding>>
 		endobj
 		12 0 obj <</Type/Font/Subtype/Type1/Name/FNT8
 		/BaseFont/Helvetica-BoldOblique
-		/Encoding/StandardEncoding>>
+		/Encoding/WinAnsiEncoding>>
 		endobj
 		13 0 obj <</Type/Font/Subtype/Type1/Name/FNT9
 		/BaseFont/Helvetica-Oblique
-		/Encoding/StandardEncoding>>
+		/Encoding/WinAnsiEncoding>>
 		endobj
 		14 0 obj <</Type/Font/Subtype/Type1/Name/FNT10
 		/BaseFont/Symbol
@@ -3210,15 +3210,15 @@ func Test_PDF_SetFont_(t *testing.T) {
 		endobj
 		15 0 obj <</Type/Font/Subtype/Type1/Name/FNT11
 		/BaseFont/Times-BoldItalic
-		/Encoding/StandardEncoding>>
+		/Encoding/WinAnsiEncoding>>
 		endobj
 		16 0 obj <</Type/Font/Subtype/Type1/Name/FNT12
 		/BaseFont/Times-Italic
-		/Encoding/StandardEncoding>>
+		/Encoding/WinAnsiEncoding>>
 		endobj
 		17 0 obj <</Type/Font/Subtype/Type1/Name/FNT13
 		/BaseFont/Times-Roman
-		/Encoding/StandardEncoding>>
+		/Encoding/WinAnsiEncoding>>
 		endobj
 		18 0 obj <</Type/Font/Subtype/Type1/Name/FNT14
 		/BaseFont/ZapfDingbats
@@ -3232,23 +3232,23 @@ func Test_PDF_SetFont_(t *testing.T) {
 		0000000130 00000 n
 		0000000399 00000 n
 		0000002361 00000 n
-		0000002463 00000 n
-		0000002564 00000 n
-		0000002663 00000 n
-		0000002767 00000 n
-		0000002878 00000 n
-		0000002986 00000 n
-		0000003093 00000 n
-		0000003207 00000 n
-		0000003317 00000 n
-		0000003417 00000 n
-		0000003527 00000 n
-		0000003633 00000 n
-		0000003738 00000 n
+		0000002462 00000 n
+		0000002562 00000 n
+		0000002660 00000 n
+		0000002763 00000 n
+		0000002873 00000 n
+		0000002980 00000 n
+		0000003086 00000 n
+		0000003199 00000 n
+		0000003308 00000 n
+		0000003408 00000 n
+		0000003517 00000 n
+		0000003622 00000 n
+		0000003726 00000 n
 		trailer
 		<</Size 19/Root 1 0 R>>
 		startxref
-		3844
+		3832
 		%%EOF
 		`
 		pdfCompare(t, doc.Bytes(), want)
@@ -3303,7 +3303,7 @@ func Test_PDF_SetXY_(t *testing.T) {
 		endobj
 		5 0 obj <</Type/Font/Subtype/Type1/Name/FNT1
 		/BaseFont/Helvetica
-		/Encoding/StandardEncoding>>
+		/Encoding/WinAnsiEncoding>>
 		endobj
 		xref
 		0 6
@@ -3316,7 +3316,7 @@ func Test_PDF_SetXY_(t *testing.T) {
 		trailer
 		<</Size 6/Root 1 0 R>>
 		startxref
-		577
+		576
 		%%EOF
 		`
 		pdfCompare(t, doc.Bytes(), want)
@@ -3757,7 +3757,7 @@ func Test_PDF_X_(t *testing.T) {
 		endobj
 		5 0 obj <</Type/Font/Subtype/Type1/Name/FNT1
 		/BaseFont/Times-Bold
-		/Encoding/StandardEncoding>>
+		/Encoding/WinAnsiEncoding>>
 		endobj
 		xref
 		0 6
@@ -3770,7 +3770,7 @@ func Test_PDF_X_(t *testing.T) {
 		trailer
 		<</Size 6/Root 1 0 R>>
 		startxref
-		472
+		471
 		%%EOF
 		`
 		pdfCompare(t, doc.Bytes(), want)
@@ -3829,7 +3829,7 @@ func Test_PDF_Y_(t *testing.T) {
 		endobj
 		5 0 obj <</Type/Font/Subtype/Type1/Name/FNT1
 		/BaseFont/Times-Bold
-		/Encoding/StandardEncoding>>
+		/Encoding/WinAnsiEncoding>>
 		endobj
 		xref
 		0 6
@@ -3842,7 +3842,7 @@ func Test_PDF_Y_(t *testing.T) {
 		trailer
 		<</Size 6/Root 1 0 R>>
 		startxref
-		471
+		470
 		%%EOF
 		`
 		pdfCompare(t, doc.Bytes(), want)

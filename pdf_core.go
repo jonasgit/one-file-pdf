@@ -152,6 +152,7 @@ import (
 	"strconv"
 	"strings"
 	"unicode" // only uses IsDigit(), IsLetter(), IsSpace()
+	"unicode/utf8"
 )
 
 // -----------------------------------------------------------------------------
@@ -461,9 +462,13 @@ func (p *PDF) Bytes() []byte {
 	// write fonts
 	for _, font := range p.fonts {
 		if font.handler == nil {
+			encoding := "/WinAnsiEncoding"
+			if pdfIsSymbolicFont(font.builtInIndex) {
+				encoding = "/StandardEncoding"
+			}
 			p.writeObj("/Font").write("/Subtype/Type1/Name/FNT", font.id, "\n",
 				"/BaseFont/", font.name, "\n",
-				"/Encoding/StandardEncoding>>\n"+"endobj\n")
+				"/Encoding", encoding, ">>\n"+"endobj\n")
 		} else {
 			font.handler.writeFontObjects(&font)
 		}
@@ -495,7 +500,8 @@ func (p *PDF) Bytes() []byte {
 			{"/Creator ", p.docCreator},
 		} {
 			if tuple[1] != "" {
-				p.write(tuple[0], "(", p.escape(tuple[1]), ")")
+				p.write(tuple[0], "(",
+					p.escapeBytes(p.encodeText(tuple[1], pdfDocEncoding)), ")")
 			}
 		}
 		p.write(">>\n" + "endobj\n\n")
@@ -810,6 +816,18 @@ func (p *PDF) ToUnits(points float64) float64 {
 func (p *PDF) WrapTextLines(width float64, text string) (ret []string) {
 	fit := func(s string, step, n int, width float64) int {
 		for max := len(s); n > 0 && n <= max; {
+			// don't measure a partial UTF-8 sequence: move n to a rune
+			// boundary in the same direction the search is moving
+			for n > 0 && n < max && !utf8.RuneStart(s[n]) {
+				if step == 2 {
+					n++
+				} else {
+					n--
+				}
+			}
+			if n == 0 {
+				break
+			}
 			w := p.TextWidth(s[:n])
 			switch step {
 			case 1, 3: //       keep halving (or - 1) until n chars fit in width
@@ -847,6 +865,9 @@ func (p *PDF) WrapTextLines(width float64, text string) (ret []string) {
 			}
 			if !found {
 				n = max
+				for n < len(line) && !utf8.RuneStart(line[n]) {
+					n++ // don't split a multi-byte character
+				}
 			}
 			if n <= 0 {
 				break
@@ -1050,7 +1071,7 @@ func (p *PDF) drawTextLine(s string) *PDF {
 	p.writeMode(true) // fill / non-stroke
 	if handler == nil {
 		p.write("BT ", int(p.page.x), " ", int(p.page.y),
-			" Td (", p.escape(s), ") Tj ET\n")
+			" Td (", p.escapeBytes(p.encodeBuiltInFontText(s)), ") Tj ET\n")
 		// BT: begin text  Td: move text position  Tj: show text  ET: end text
 	} else {
 		handler.writeText(s)
@@ -1220,15 +1241,10 @@ func (p *PDF) textWidthPt(s string) float64 {
 		return p.font.handler.textWidthPt(s)
 	}
 	w := 0.0
-	for i, r := range s {
-		if r < 0 || r > 255 {
-			p.putError(0xE31046, "Rune out of range",
-				fmt.Sprintf("at %d = '%s'", i, string(r)))
-			break
-		}
-		id := p.fonts[p.page.fontID-1].builtInIndex
+	id := p.fonts[p.page.fontID-1].builtInIndex
+	for _, c := range []byte(p.encodeBuiltInFontText(s)) {
 		if id >= 0 && id <= 9 {
-			w += float64(pdfFontWidths[r][id])
+			w += float64(pdfFontWidths[c][id])
 		} else {
 			w += 600 // for Courier font
 		}
